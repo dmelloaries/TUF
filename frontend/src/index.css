@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bright Grotesk Semibold';
+  src: url('/path-to-your-font/BrightGrotesk-Semibold.woff2') format('woff2');
+}
+
+body {
+  margin: 0;
+  font-family: 'Bright Grotesk Semibold', sans-serif;
+}
