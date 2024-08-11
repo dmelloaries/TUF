@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "prisma generate && your-build-command",
-    "start": "node your-start-script"
+    "build": " npm install && prisma generate",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
