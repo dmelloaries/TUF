@@ -11,3 +11,20 @@ body {
   margin: 0;
   font-family: 'Bright Grotesk Semibold', sans-serif;
 }
+
+
+.perspective {
+  perspective: 1000px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}

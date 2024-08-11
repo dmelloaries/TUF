@@ -1,19 +1,19 @@
-
+import FlashCard from "./components/FlashCard";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/SideBar";
 
 export default function App() {
   return (
-    <div className="bg-black">
-
-   
-    <div className="flex flex-col md:flex-row">
-      <Sidebar className="w-full md:w-64 fixed md:relative h-screen md:h-auto" />
-      <div className="md:ml-64 flex-1 p-4">
-        <Navbar />
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className="flex flex-col min-h-screen">
+      <div className="bg-black flex flex-col md:flex-row">
+        <Sidebar className="w-full md:w-64 fixed md:relative h-screen md:h-auto" />
+        <div className="md:ml-64 flex-1">
+          <Navbar />
+        </div>
       </div>
-    </div>
+      <div className="flex-1 bg-[#111] flex items-center justify-center">
+        <FlashCard />
+      </div>
     </div>
   );
 }

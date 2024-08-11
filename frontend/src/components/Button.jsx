@@ -1,20 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Button = () => {
-
-    function validate(){
-
-    }
-
+const Button = ({ children }) => {
   return (
-    <div>
-        <button onClick={validate}>hey
-            
+    <button className="bg-transparent text-[#de4227] border border-gray-500 rounded-full py-2 px-4 hover:bg-gray-900 hover:border-gray-400 rounded-2xl">
+      {children}
+    </button>
+  );
+};
 
-        </button>
-      
-    </div>
-  )
-}
-
-export default Button
+export default Button;

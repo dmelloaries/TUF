@@ -14,7 +14,6 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [isDSAOpen, setIsDSAOpen] = useState(false);
   
-  
   const isMobile = useMediaQuery('(max-width:600px)');
   
   const handleToggleSidebar = () => {
@@ -40,7 +39,6 @@ const Sidebar = () => {
           sx={{
             margin: 1,
             color: '#de4227',
-            
             zIndex: 1300,
           }}
         >
@@ -62,13 +60,14 @@ const Sidebar = () => {
             color: '#fff',
             transition: 'width 0.3s',
             overflowX: 'hidden',
+            borderRight: '1px solid #111', 
           },
         }}
       >
         <Box sx={{ textAlign: 'center', padding: '12px 0', backgroundColor: '#111' }}>
           <img src={logo} alt="Logo" style={{ maxWidth: '70%', margin: '0 auto' }} />
         </Box>
-        <Divider sx={{ borderBottom: '2px solid #757575' }} /> 
+        <Divider sx={{ borderBottom: ' solid #757575' }} /> 
         <List>
           <ListItem 
             button 
@@ -111,7 +110,7 @@ const Sidebar = () => {
           ))}
         </List>
         <Divider sx={{ borderBottom: '2px solid #757575' }} />
-        <Box sx={{ textAlign: 'center', padding: '12px 0', backgroundColor: '#111' }}>
+        <Box sx={{ textAlign: 'center', padding: '12px 0' }}>
           <img src={plus} alt="Plus" style={{ maxWidth: '70%', margin: '0 auto' }} />
         </Box>
       </Drawer>
