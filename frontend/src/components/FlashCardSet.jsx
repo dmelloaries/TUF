@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
-import Flashcard from './FlashCard';
-
-const flashcards = [
-  { question: 'What is an Array?', answer: 'A data structure for storing elements of the same type.' },
-  { question: 'What is DSA?', answer: 'Data Structures and Algorithms.' },
-  { question: 'What is Binary Search?', answer: 'Efficient searching algorithm for sorted arrays.' },
-];
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import FlashCard from './FlashCard';
 
 const FlashCardSet = () => {
+  const [flashcards, setFlashcards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchFlashcards = async () => {
+      try {
+        const response = await axios.get('https://tuf-4.onrender.com/flashcards');
+        setFlashcards(response.data);
+        setLoading(false);
+      } catch (e) {
+        setError('Failed to fetch flashcards.');
+        setLoading(false);
+      }
+    };
+
+    fetchFlashcards();
+  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
@@ -20,9 +33,21 @@ const FlashCardSet = () => {
     );
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (flashcards.length === 0) {
+    return <div>No flashcards available.</div>;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
-      <Flashcard
+      <FlashCard
         question={flashcards[currentIndex].question}
         answer={flashcards[currentIndex].answer}
       />
